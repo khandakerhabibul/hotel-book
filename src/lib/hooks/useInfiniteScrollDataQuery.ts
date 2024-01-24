@@ -58,7 +58,10 @@ export const useInfiniteScrollDataQuery = <T extends TData>({
       // NOTE: USING Booking.com Rapid API, here no pagination info is available from the response
       // unable to detect if the next page is available or not from the api response
       // so by default increasing next page number by 1
-      // if the next page number is greater than 10, then return undefined
+      // if the next page number is greater than 3, then return undefined
+
+      // Also I have limited page limit to 3 for dev purpose as
+      // Rapid API has limited request (only 50 request) for free account
       if (nextPageNumber && nextPageNumber <= 3) {
         return nextPageNumber;
       }
